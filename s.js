@@ -1,6 +1,6 @@
 var messaging = firebase.messaging();
 
-messaging.usePublicVapidKey('BBVcFDKKARroWd9FR4OYDt9mnSkEcspyEx01jY6fdaLlIAQeUwCx9F0x85p_Cr88msWXZbRYEg-_o2zD0m5vzk4');
+messaging.usePublicVapidKey('BDlzGLqxvH9HBh8wD_JWf1joOgLUudKB-XOUDs3A0RywUs_QwvvI0iNeF1uesQjh5dHtv2lIibXtBwFvVdFf-C0');
   // [END set_public_vapid_key]
   // IDs of divs that display Instance ID token UI or request permission UI.
 
@@ -63,6 +63,7 @@ messaging.usePublicVapidKey('BBVcFDKKARroWd9FR4OYDt9mnSkEcspyEx01jY6fdaLlIAQeUwC
     messaging.getToken().then(function(currentToken) {
       if (currentToken) {
         sendTokenToServer(currentToken);
+        showToken(currentToken);
         //updateUIForPushEnabled(currentToken);
       } else {
         // Show permission request.
@@ -100,6 +101,9 @@ messaging.usePublicVapidKey('BBVcFDKKARroWd9FR4OYDt9mnSkEcspyEx01jY6fdaLlIAQeUwC
     if (!isTokenSentToServer()) {
       console.log('Sending token to server...');
       // TODO(developer): Send the current token to your server.
+
+      
+
       setTokenSentToServer(true);
     } else {
       console.log('Token already sent to server so won\'t send it again ' +
