@@ -55,7 +55,7 @@ messaging.usePublicVapidKey('BBVcFDKKARroWd9FR4OYDt9mnSkEcspyEx01jY6fdaLlIAQeUwC
 
   // [END receive_message]
   function resetUI() {
-    clearMessages();
+    // clearMessages();
     showToken('loading...');
     // [START get_token]
     // Get Instance ID token. Initially this makes a network call, once retrieved
