@@ -1,4 +1,4 @@
-const messaging = firebase.messaging();
+var messaging = firebase.messaging();
 
 messaging.usePublicVapidKey('BBVcFDKKARroWd9FR4OYDt9mnSkEcspyEx01jY6fdaLlIAQeUwCx9F0x85p_Cr88msWXZbRYEg-_o2zD0m5vzk4');
   // [END set_public_vapid_key]
