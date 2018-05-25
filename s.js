@@ -1,12 +1,5 @@
+
 var messaging = firebase.messaging();
-
-navigator.serviceWorker.register('https://gps008.github.io/firebase-messaging-sw.js')
-  .then((registration) => {
-    messaging.useServiceWorker(registration);
-
-    // Request permission and get token.....
-  });
-
 
 messaging.usePublicVapidKey('BDlzGLqxvH9HBh8wD_JWf1joOgLUudKB-XOUDs3A0RywUs_QwvvI0iNeF1uesQjh5dHtv2lIibXtBwFvVdFf-C0');
 // [END set_public_vapid_key]
@@ -229,30 +222,13 @@ function deleteToken() {
   // });
 
 }
-// Add a message to the messages element.
-function appendMessage(payload) {
-  const messagesElement = document.querySelector('#messages');
-  const dataHeaderELement = document.createElement('h5');
-  const dataElement = document.createElement('pre');
-  dataElement.style = 'overflow-x:hidden;';
-  dataHeaderELement.textContent = 'Received message:';
-  dataElement.textContent = JSON.stringify(payload, null, 2);
-  messagesElement.appendChild(dataHeaderELement);
-  messagesElement.appendChild(dataElement);
-}
-// Clear the messages element of all children.
-function clearMessages() {
-  const messagesElement = document.querySelector('#messages');
-  while (messagesElement.hasChildNodes()) {
-    messagesElement.removeChild(messagesElement.lastChild);
-  }
-}
-function updateUIForPushEnabled(currentToken) {
-  showHideDiv(tokenDivId, true);
-  showHideDiv(permissionDivId, false);
-  showToken(currentToken);
-}
-function updateUIForPushPermissionRequired() {
-  showHideDiv(tokenDivId, false);
-  showHideDiv(permissionDivId, true);
+
+function requestTest() {
+  
+  navigator.serviceWorker.register('https://gps008.github.io/firebase-messaging-sw.js')
+    .then((registration) => {
+      messaging.useServiceWorker(registration);
+  
+      requestPermission();
+    });
 }
