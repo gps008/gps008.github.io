@@ -1,5 +1,13 @@
 var messaging = firebase.messaging();
 
+navigator.serviceWorker.register('https://gps008.github.io/firebase-messaging-sw.js')
+  .then((registration) => {
+    messaging.useServiceWorker(registration);
+
+    // Request permission and get token.....
+  });
+
+
 messaging.usePublicVapidKey('BDlzGLqxvH9HBh8wD_JWf1joOgLUudKB-XOUDs3A0RywUs_QwvvI0iNeF1uesQjh5dHtv2lIibXtBwFvVdFf-C0');
 // [END set_public_vapid_key]
 // IDs of divs that display Instance ID token UI or request permission UI.
